@@ -1,0 +1,72 @@
+.cards {
+    list-style: none;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px;
+    border-radius: 1rem;
+    background: #5c695e;
+}
+
+.cards__img {
+    width: 150px;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.text__container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #FFFFFF;
+}
+
+.character__name {
+    font-size: 1.3rem;
+}
+
+.character__name,
+.character__status,
+.character__species,
+.character__gender {
+    margin: 0;
+}
+
+@media screen and (min-width: 425px) and (max-width: 767px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cards__img {
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+    }
+}
+
+@media screen and (min-width: 0) and (max-width: 424px) {
+    .cards {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cards__img {
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+        max-height: 60%;
+    }
+
+    .text__container {
+        padding: 1rem .5rem;
+        gap: .3rem;
+    }
+
+    .character__name {
+        font-size: .9rem;
+        text-align: center;
+    }
+
+    .character__status,
+    .character__species,
+    .character__gender {
+        font-size: .8rem;
+    }
+}

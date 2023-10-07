@@ -1,0 +1,22 @@
+.navBar {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #5c695e;
+}
+
+.logo {
+    width: 250px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 0) and (max-width: 424px) {
+    .navBar {
+        padding: 1rem;
+    }
+
+    .logo {
+        width: 150px;
+    }
+}

@@ -1,0 +1,16 @@
+.container__footer {
+    padding: 2rem;
+    background: #5c695e;
+}
+
+.footer__copyright {
+    text-align: center;
+    color: #FFFFFF;
+    font-size: .9rem;
+}
+
+@media screen and (min-width: 0) and (max-width: 424px) {
+    .footer__copyright {
+        font-size: .7rem;
+    }
+}
