@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import CharacterCard from "../CharacterCard";
 import { AiOutlineSearch } from "react-icons/ai";
 import NoData from "../NoData";
+import { RenderPageButtons } from "../PageButtons";
 
 export default function Main() {
   const urlCharacters = "https://rickandmortyapi.com/api/character";
@@ -10,6 +11,7 @@ export default function Main() {
   const [characters, setcharacters] = useState([]);
   const [searchKey, setsearchKey] = useState("");
   const [buttonGroupVisible, setButtonGroupVisible] = useState(true);
+  const [totalPages, setTotalPages] = useState(1);
 
   const fetchCharacters = useCallback(async () => {
     const listPage = page ? `?page=${page}` : "";
@@ -17,6 +19,7 @@ export default function Main() {
       response.json()
     );
     setcharacters(data.results);
+    setTotalPages(data.info.pages);
   }, [page]);
 
   useEffect(() => {
@@ -51,33 +54,6 @@ export default function Main() {
   };
   const incrementPage = () => {
     setPage(page + 1);
-  };
-
-  const renderPageButtons = () => {
-    const totalPages = 42;
-    const buttons = [];
-    let startPage = Math.max(1, page - 2);
-    let endPage = Math.min(page + 2, totalPages);
-
-    if (page <= 3) {
-      startPage = 1;
-      endPage = Math.min(5, totalPages);
-    } else if (page >= totalPages - 2) {
-      startPage = Math.max(totalPages - 4, 1);
-      endPage = totalPages;
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      const buttonClasses =
-        i === page ? "page__button page__button-current" : "page__button";
-
-      buttons.push(
-        <button key={i} onClick={() => setPage(i)} className={buttonClasses}>
-          {i}
-        </button>
-      );
-    }
-    return buttons;
   };
 
   return (
@@ -115,7 +91,7 @@ export default function Main() {
                         Prev
                       </button>
                     ) : null}
-                    {renderPageButtons()}
+                    {RenderPageButtons(totalPages, page, setPage)}
                     {page < 42 ? (
                       <button onClick={incrementPage} className="page__button">
                         Next

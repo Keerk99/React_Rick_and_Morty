@@ -59,24 +59,6 @@
     gap: .5rem;
 }
 
-.page__button {
-    padding: 0.5rem 1rem;
-    border-radius: .5rem;
-    border: none;
-    cursor: pointer;
-    transition: background ease .5s;
-}
-
-.page__button:hover {
-    background: #959e96;
-    color: #FFFFFF;
-}
-
-.page__button-current {
-    background: #5c695e;
-    color: #FFFFFF;
-}
-
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
     .cards__list {
         display: grid;
@@ -124,10 +106,5 @@
     .button__group {
         gap: .2rem;
         justify-content: space-between;
-    }
-
-    .page__button {
-        font-size: .6rem;
-        padding: .5rem .7rem;
     }
 }
